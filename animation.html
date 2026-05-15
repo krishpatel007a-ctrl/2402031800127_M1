@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Animation</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111827;
+            overflow: hidden;
+        }
+        
+        .circle-box {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            border: 6px solid #00e5ff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: rotateCircle 4s linear infinite;
+            box-shadow: 0 0 30px #00e5ff;
+        }
+        
+        .circle {
+            width: 80px;
+            height: 80px;
+            background: #00e5ff;
+            border-radius: 50%;
+            transform: translateX(85px);
+            box-shadow: 0 0 20px #00e5ff;
+        }
+        
+        @keyframes rotateCircle {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="circle-box">
+        <div class="circle"></div>
+    </div>
+
+</body>
+
+</html>

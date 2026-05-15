@@ -1,0 +1,262 @@
+# Responsive Web Page with Proper Design and Image ```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Page</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background: #f4f4f4;
+            color: #333;
+        }
+        /* NAVBAR */
+        
+        nav {
+            background: #2d2d6b;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            flex-wrap: wrap;
+        }
+        
+        nav h1 {
+            font-size: 30px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+        /* HERO SECTION */
+        
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 8%;
+            gap: 40px;
+            background: white;
+            flex-wrap: wrap;
+        }
+        
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .hero-text h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #2d2d6b;
+        }
+        
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        
+        .hero-text button {
+            padding: 14px 30px;
+            border: none;
+            background: #2d2d6b;
+            color: white;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .hero-text button:hover {
+            background: #4444aa;
+        }
+        
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        /* CARD SECTION */
+        
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding: 60px 8%;
+        }
+        
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .card h3 {
+            margin-bottom: 10px;
+            color: #2d2d6b;
+        }
+        
+        .card p {
+            line-height: 1.6;
+        }
+        /* FOOTER */
+        
+        footer {
+            background: #2d2d6b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        /* TABLET RESPONSIVE */
+        
+        @media(max-width:768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-text h2 {
+                font-size: 38px;
+            }
+            .cards {
+                grid-template-columns: 1fr 1fr;
+            }
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        /* MOBILE RESPONSIVE */
+        
+        @media(max-width:480px) {
+            .hero-text h2 {
+                font-size: 30px;
+            }
+            .hero-text p {
+                font-size: 16px;
+            }
+            .cards {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+        <h1>My Website</h1>
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+            <h2>Responsive Web Design</h2>
+
+            <p>
+                This is a modern responsive website created using HTML, CSS, Flexbox, Grid and Media Queries.
+            </p>
+
+            <button>Learn More</button>
+        </div>
+
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Web Design">
+        </div>
+
+    </section>
+
+    <!-- CARDS SECTION -->
+
+    <section class="cards">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" alt="Coding">
+            <h3>HTML</h3>
+            <p>Build the structure of your responsive website using HTML.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" alt="CSS">
+            <h3>CSS</h3>
+            <p>Design beautiful layouts and make the website attractive.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d" alt="Responsive">
+            <h3>Responsive</h3>
+            <p>Use media queries to make the website responsive on all devices.</p>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <p>© 2026 Responsive Website | Designed by Krish</p>
+    </footer>
+
+</body>
+
+</html>
