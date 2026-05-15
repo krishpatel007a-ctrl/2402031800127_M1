@@ -4,84 +4,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Menu Programs</title>
+    <title>Do While Loop Programs</title>
 </head>
 
 <body>
 
-    <h2>JavaScript Menu Driven Programs</h2>
+    <h2>Do While Loop Programs</h2>
 
     <script>
-        let choice = parseInt(prompt(
-            "Calculator Menu\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\nEnter your choice:"
-        ));
+        // 1. Simple Calculator using Do While Loop
 
-        let num1 = parseInt(prompt("Enter First Number:"));
-        let num2 = parseInt(prompt("Enter Second Number:"));
+        let choice = 1;
 
-        document.write("<h3>1. Simple Calculator</h3>");
+        document.write("<h3>Simple Calculator</h3>");
 
-        switch (choice) {
+        do {
 
-            case 1:
-                document.write("Addition = " + (num1 + num2));
-                break;
+            let num1 = 10;
+            let num2 = 5;
 
-            case 2:
-                document.write("Subtraction = " + (num1 - num2));
-                break;
+            switch (choice) {
 
-            case 3:
-                document.write("Multiplication = " + (num1 * num2));
-                break;
+                case 1:
+                    document.write("Addition = " + (num1 + num2) + "<br>");
+                    break;
 
-            case 4:
-                document.write("Division = " + (num1 / num2));
-                break;
+                case 2:
+                    document.write("Subtraction = " + (num1 - num2) + "<br>");
+                    break;
 
-            default:
-                document.write("Invalid Choice");
-        }
+                case 3:
+                    document.write("Multiplication = " + (num1 * num2) + "<br>");
+                    break;
 
-        document.write("<br><br>");
+                case 4:
+                    document.write("Division = " + (num1 / num2) + "<br>");
+                    break;
+            }
 
+            choice++;
+
+        } while (choice <= 4);
+
+
+
+        // 2. ATM Menu Simulation using Do While Loop
 
         let balance = 5000;
+        let atmChoice = 1;
 
-        let atmChoice = parseInt(prompt(
-            "ATM Menu\n1. Deposit\n2. Withdraw\n3. Balance Check\nEnter your choice:"
-        ));
+        document.write("<h3>ATM Menu Simulation</h3>");
 
-        document.write("<h3>2. ATM Menu Simulation</h3>");
+        do {
 
-        switch (atmChoice) {
+            switch (atmChoice) {
 
-            case 1:
-                let deposit = parseInt(prompt("Enter Deposit Amount:"));
-                balance = balance + deposit;
-                document.write("Amount Deposited Successfully<br>");
-                document.write("Current Balance = " + balance);
-                break;
+                case 1:
+                    let deposit = 2000;
+                    balance = balance + deposit;
 
-            case 2:
-                let withdraw = parseInt(prompt("Enter Withdraw Amount:"));
+                    document.write("Deposited Amount = " + deposit + "<br>");
+                    document.write("Current Balance = " + balance + "<br><br>");
+                    break;
 
-                if (withdraw <= balance) {
-                    balance = balance - withdraw;
-                    document.write("Amount Withdrawn Successfully<br>");
-                    document.write("Current Balance = " + balance);
-                } else {
-                    document.write("Insufficient Balance");
-                }
-                break;
+                case 2:
+                    let withdraw = 1000;
 
-            case 3:
-                document.write("Current Balance = " + balance);
-                break;
+                    if (withdraw <= balance) {
 
-            default:
-                document.write("Invalid Choice");
-        }
+                        balance = balance - withdraw;
+
+                        document.write("Withdraw Amount = " + withdraw + "<br>");
+                        document.write("Current Balance = " + balance + "<br><br>");
+                    }
+                    break;
+
+                case 3:
+                    document.write("Balance Check = " + balance + "<br><br>");
+                    break;
+            }
+
+            atmChoice++;
+
+        } while (atmChoice <= 3);
     </script>
 
 </body>
