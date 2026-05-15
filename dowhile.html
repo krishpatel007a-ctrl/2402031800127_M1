@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Menu Programs</title>
+</head>
+
+<body>
+
+    <h2>JavaScript Menu Driven Programs</h2>
+
+    <script>
+        let choice = parseInt(prompt(
+            "Calculator Menu\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\nEnter your choice:"
+        ));
+
+        let num1 = parseInt(prompt("Enter First Number:"));
+        let num2 = parseInt(prompt("Enter Second Number:"));
+
+        document.write("<h3>1. Simple Calculator</h3>");
+
+        switch (choice) {
+
+            case 1:
+                document.write("Addition = " + (num1 + num2));
+                break;
+
+            case 2:
+                document.write("Subtraction = " + (num1 - num2));
+                break;
+
+            case 3:
+                document.write("Multiplication = " + (num1 * num2));
+                break;
+
+            case 4:
+                document.write("Division = " + (num1 / num2));
+                break;
+
+            default:
+                document.write("Invalid Choice");
+        }
+
+        document.write("<br><br>");
+
+
+        let balance = 5000;
+
+        let atmChoice = parseInt(prompt(
+            "ATM Menu\n1. Deposit\n2. Withdraw\n3. Balance Check\nEnter your choice:"
+        ));
+
+        document.write("<h3>2. ATM Menu Simulation</h3>");
+
+        switch (atmChoice) {
+
+            case 1:
+                let deposit = parseInt(prompt("Enter Deposit Amount:"));
+                balance = balance + deposit;
+                document.write("Amount Deposited Successfully<br>");
+                document.write("Current Balance = " + balance);
+                break;
+
+            case 2:
+                let withdraw = parseInt(prompt("Enter Withdraw Amount:"));
+
+                if (withdraw <= balance) {
+                    balance = balance - withdraw;
+                    document.write("Amount Withdrawn Successfully<br>");
+                    document.write("Current Balance = " + balance);
+                } else {
+                    document.write("Insufficient Balance");
+                }
+                break;
+
+            case 3:
+                document.write("Current Balance = " + balance);
+                break;
+
+            default:
+                document.write("Invalid Choice");
+        }
+    </script>
+
+</body>
+
+</html>
