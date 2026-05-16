@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Green Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #dff5df;
+        }
+        
+        .form-box {
+            width: 650px;
+            margin: 20px auto;
+            background-color: green;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        h2 {
+            text-align: center;
+            color: white;
+        }
+        
+        table {
+            width: 100%;
+        }
+        
+        td {
+            padding: 8px;
+            color: black;
+            font-weight: bold;
+        }
+        
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 7px;
+            border: none;
+            border-radius: 5px;
+            background-color: white;
+            color: black;
+        }
+        
+        textarea {
+            resize: none;
+        }
+        
+        .radio,
+        .checkbox {
+            width: auto;
+        }
+        
+        .btn {
+            width: 120px;
+            background-color: white;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .center {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="form-box">
+
+        <h2>Registration Form</h2>
+
+        <form>
+
+            <table>
+
+                <tr>
+
+                    <td>First Name :-</td>
+
+                    <td>
+
+                        <input type="text" placeholder="Enter First Name">
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Last Name :-</td>
+
+                    <td>
+
+                        <input type="text" placeholder="Enter Last Name">
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Contact Number :-</td>
+
+                    <td>
+
+                        <input type="tel" placeholder="Enter Mobile Number">
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Landline Number :-</td>
+
+                    <td>
+
+                        <input type="tel" placeholder="Enter Landline Number">
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Email :-</td>
+
+                    <td>
+
+                        <input type="email" placeholder="Enter Email">
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Password :-</td>
+
+                    <td>
+
+                        <input type="password" placeholder="Enter Password">
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Confirm Password :-</td>
+
+                    <td>
+
+                        <input type="password" placeholder="Confirm Password">
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Date of Birth :-</td>
+
+                    <td>
+
+                        <input type="text" placeholder="DD/MM/YYYY">
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Age :-</td>
+
+                    <td>
+
+                        <input type="number" placeholder="Enter Age">
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Gender :-</td>
+
+                    <td>
+
+                        <input type="radio" name="gender" class="radio"> Male
+
+                        <input type="radio" name="gender" class="radio"> Female
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Address :-</td>
+
+                    <td>
+
+                        <textarea rows="3" placeholder="Enter Address"></textarea>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>City :-</td>
+
+                    <td>
+
+                        <select>
+
+                            <option>--Select City--</option>
+
+                            <option>Surat</option>
+
+                            <option>Ahmedabad</option>
+
+                            <option>Rajkot</option>
+
+                            <option>Vadodara</option>
+
+                            <option>Mumbai</option>
+
+                        </select>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Pincode :-</td>
+
+                    <td>
+
+                        <input type="text" placeholder="Enter Pincode">
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Joining Date :-</td>
+
+                    <td>
+
+                        <input type="date">
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td colspan="2">
+
+                        <input type="checkbox" class="checkbox"> I confirm all details are correct.
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td colspan="2" class="center">
+
+                        <input type="submit" value="Submit" class="btn">
+
+                        <input type="reset" value="Reset" class="btn">
+
+                    </td>
+
+                </tr>
+
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>
