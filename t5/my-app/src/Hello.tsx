@@ -1,4 +1,4 @@
-
+import './App.css'
 
 function Hello() {
 
@@ -17,25 +17,41 @@ function Hello() {
         console.log(event.target.value)
     }
 
-    const handleMouseover = () => console.log("Hovering")
-    const handleDoubleclick = () => console.log("Double-clicked")
       
     const name = "Krish"
-    const name2 = "Patel"
+
+    const fruits = ["Apple", "Banana", "Cherry"]
+     const isLoggedIn = true
+     let message;
+
+     if(isLoggedIn){
+        message = <h1>Welcome, {getname(name)}!</h1>
+     } else {
+        message = <h1>Please log in to continue.</h1>
+     }
+
+     const isVisible = true;
 
     return (
         <>
          <h1>Hello {getname(name)}</h1>
-         <h2>Bye {getname(name2)}</h2>
 
-         <p onMouseOver={handleMouseover} onDoubleClick={handleDoubleclick}>Hover or double-click me!</p>
-
-
+          
+          <h3>Fruits:</h3>
+          <ul>
+            {fruits.map((fruit, index) => (
+              <li key={index}>{fruit}</li>
+              
+            ))}
+          </ul>
 
             <button onClick={handleclick}>Click Me</button>
             <button onClick={()=>alert("Button Clicked")}>Say Hello</button>
             <br />
             <input type="text" onChange={handlechange} placeholder="Type Something"/>
+            <p>{message}</p>
+            {isVisible ? <p className="visible">This is a conditional message.</p> : <p className="unvisible">This is a conditional message.</p>}
+
         </>
     )
 }
