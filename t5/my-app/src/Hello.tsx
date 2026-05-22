@@ -1,9 +1,8 @@
 import './App.css'
 
-function Hello() {
+function Hello({name="Krish", age=20 ,city="Ahmedabad" , hobbies=["Coding", "Traveling", "Cooking"]}) {
 
    
-  
     const getname = (name: string) => {
         return name 
     }
@@ -16,9 +15,6 @@ function Hello() {
         console. clear()
         console.log(event.target.value)
     }
-
-      
-    const name = "Krish"
 
     const fruits = ["Apple", "Banana", "Cherry"]
      const isLoggedIn = true
@@ -51,7 +47,10 @@ function Hello() {
             <input type="text" onChange={handlechange} placeholder="Type Something"/>
             <p>{message}</p>
             {isVisible ? <p className="visible">This is a conditional message.</p> : <p className="unvisible">This is a conditional message.</p>}
-
+            <p>Hobbies: {hobbies.join(", ")}</p>
+            <p>City: {city}</p>
+            <p>Age: {age}</p>
+           
         </>
     )
 }

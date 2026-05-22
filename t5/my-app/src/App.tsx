@@ -3,6 +3,8 @@ import Hello from './Hello'
 import Bye from './Bye'
 
 function App() {
+
+    const hobbies = ["Coding", "Traveling", "Cooking"]
 /*
   const isLoggedIn = true;
    if(isLoggedIn){
@@ -14,7 +16,7 @@ function App() {
   return (
   <>
     <h1>My App</h1>
-    <Hello />
+    <Hello name="Krish" age={20} city="Ahmedabad" hobbies={hobbies} />
     <img src={reactlog} width={200} />
     <Bye />
   </> 
