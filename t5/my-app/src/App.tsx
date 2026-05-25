@@ -7,6 +7,7 @@ import UserProfile from './UserProfile'
 import Student from './Student'
 import SimpleForm from './SimpleForm'
 import MultiInputForm from './MultiInputForm'
+import AdvancedForm from './AdvancedForm'
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
     <Student />
     <SimpleForm />
     <MultiInputForm />
+    <AdvancedForm />
   </> 
   )
 }
