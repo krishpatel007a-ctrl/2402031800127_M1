@@ -7,6 +7,7 @@ export default function ToggleText() {
     <div>
       <h1>{isHello ? "Hello" : "Bye"}</h1>
       <button onClick={() => setIsHello(!isHello)}>Toggle</button>
+      <hr />
     </div>
   )
 }

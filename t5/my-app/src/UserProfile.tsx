@@ -13,6 +13,7 @@ export default function UserProfile() {
       <button onClick={() => setName("Dhruv")}>Change Name</button>
       <button onClick={() => setAge(21)}>Change Age</button>
       <button onClick={() => setCity("Mumbai")}>Change City</button>
+      <hr />
     </div>
   )
 }

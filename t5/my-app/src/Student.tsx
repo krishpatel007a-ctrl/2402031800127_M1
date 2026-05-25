@@ -22,8 +22,9 @@ function Student() {
             <h2>Age : {students[0].age}</h2>
             <h2>City : {students[0].city}</h2>
             <button onClick={changeCity}>Change City</button>
+            <hr />
         </div>
     )
 }
 
-export default Student
+export default Student 

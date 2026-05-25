@@ -5,6 +5,8 @@ import Counter from './Counter'
 import ToggleText from './ToggleText'
 import UserProfile from './UserProfile'
 import Student from './Student'
+import SimpleForm from './SimpleForm'
+import MultiInputForm from './MultiInputForm'
 
 function App() {
 
@@ -27,6 +29,8 @@ function App() {
     <ToggleText />
     <UserProfile />
     <Student />
+    <SimpleForm />
+    <MultiInputForm />
   </> 
   )
 }
