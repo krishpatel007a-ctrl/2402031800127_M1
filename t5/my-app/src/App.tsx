@@ -8,6 +8,9 @@ import Student from './Student'
 import SimpleForm from './SimpleForm'
 import MultiInputForm from './MultiInputForm'
 import AdvancedForm from './AdvancedForm'
+import UncontrolledForm from './UncontrolledForm'
+import BasicValidationForm from './BasicValidationForm'
+import Todo from './Todo'
 
 function App() {
 
@@ -33,6 +36,9 @@ function App() {
     <SimpleForm />
     <MultiInputForm />
     <AdvancedForm />
+    <UncontrolledForm />
+    <BasicValidationForm />
+    <Todo />
   </> 
   )
 }
