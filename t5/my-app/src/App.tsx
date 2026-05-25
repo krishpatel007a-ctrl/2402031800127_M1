@@ -1,6 +1,10 @@
 import reactlog from './assets/react.svg'
 import Hello from './Hello'
 import Bye from './Bye'
+import Counter from './Counter'
+import ToggleText from './ToggleText'
+import UserProfile from './UserProfile'
+import Student from './Student'
 
 function App() {
 
@@ -19,6 +23,10 @@ function App() {
     <Hello name="Krish" age={20} city="Ahmedabad" hobbies={hobbies} />
     <img src={reactlog} width={200} />
     <Bye />
+    <Counter />
+    <ToggleText />
+    <UserProfile />
+    <Student />
   </> 
   )
 }
