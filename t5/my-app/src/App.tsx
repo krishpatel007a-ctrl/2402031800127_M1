@@ -11,6 +11,7 @@ import AdvancedForm from './AdvancedForm'
 import UncontrolledForm from './UncontrolledForm'
 import BasicValidationForm from './BasicValidationForm'
 import Todo from './Todo'
+import First from './First'
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
     <UncontrolledForm />
     <BasicValidationForm />
     <Todo />
+    <First />
   </> 
   )
 }
