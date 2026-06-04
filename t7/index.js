@@ -8,6 +8,7 @@ app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
 
+app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
 
 
@@ -15,9 +16,9 @@ app.get('/', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-    res.redirect(301, 'https://www.google.com');
+    res.redirect('..');
 })
 
 app.get('/user', (req, res) => {
-    res.send('<h1>Welcome to user page</h1>')
+    res.render('user', { name: 'Krish patel', age: 20 });
 })
