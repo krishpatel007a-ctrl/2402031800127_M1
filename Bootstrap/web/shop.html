@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop all premium products at ShopEase">
+    <title>Shop | ShopEase</title>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary shadow-sm" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4 text-primary" href="index.html">
+                <i class="bi bi-bag-check-fill me-2"></i>ShopEase
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <form class="d-flex mx-lg-4 my-3 my-lg-0 flex-grow-1" role="search">
+                    <div class="input-group">
+                        <span class="input-group-text bg-body border-end-0">
+                            <i class="bi bi-search text-muted"></i>
+                        </span>
+                        <input class="form-control border-start-0 ps-0" type="search" placeholder="Search products..." aria-label="Search">
+                    </div>
+                </form>
+                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link fw-medium" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-medium" href="shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center ms-lg-4 mt-3 mt-lg-0 gap-3">
+                    <button class="btn btn-outline-secondary rounded-circle p-2" id="themeToggle" title="Toggle Theme">
+                        <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+                    </button>
+                    <a href="cart.html" class="btn btn-primary position-relative rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                        <i class="bi bi-cart3 fs-5"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== PAGE HEADER ==================== -->
+    <section class="bg-body-tertiary py-4 border-bottom">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-muted">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                </ol>
+            </nav>
+            <h1 class="fw-bold mt-2 mb-0">All Products</h1>
+            <p class="text-muted mb-0">Discover our wide range of premium products</p>
+        </div>
+    </section>
+
+    <!-- ==================== SHOP MAIN CONTENT ==================== -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+
+                <!-- Sidebar Filters -->
+                <div class="col-lg-3">
+                    <div class="card border-0 shadow-sm sticky-top" style="top: 100px; z-index: 1;">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold mb-4">Filters</h5>
+
+                            <!-- Categories -->
+                            <div class="mb-4">
+                                <h6 class="fw-semibold mb-3">Categories</h6>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="catElectronics">
+                                    <label class="form-check-label text-muted" for="catElectronics">Electronics (2)</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="catFashion">
+                                    <label class="form-check-label text-muted" for="catFashion">Fashion (3)</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="catAccessories">
+                                    <label class="form-check-label text-muted" for="catAccessories">Accessories (2)</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="catBags">
+                                    <label class="form-check-label text-muted" for="catBags">Bags (1)</label>
+                                </div>
+                            </div>
+
+                            <!-- Price Range -->
+                            <div class="mb-4">
+                                <h6 class="fw-semibold mb-3">Price Range</h6>
+                                <input type="range" class="form-range" min="0" max="500" step="10" id="priceRange">
+                                <div class="d-flex justify-content-between text-muted small">
+                                    <span>$0</span>
+                                    <span id="priceValue">$500</span>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-outline-primary w-100 rounded-pill">Apply Filters</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Grid Area -->
+                <div class="col-lg-9">
+                    <!-- Top Bar: Search & Sort -->
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
+                        <p class="mb-0 text-muted"><span id="productCount">8</span> products found</p>
+                        <div class="d-flex gap-2 w-100 w-md-auto">
+                            <div class="input-group" style="max-width: 250px;">
+                                <span class="input-group-text bg-body border-end-0"><i class="bi bi-search text-muted"></i></span>
+                                <input type="text" class="form-control border-start-0 ps-0" id="shopSearch" placeholder="Search products...">
+                            </div>
+                            <select class="form-select" id="sortProducts" style="max-width: 180px;">
+                                <option value="default" selected>Sort by: Default</option>
+                                <option value="low-high">Price: Low to High</option>
+                                <option value="high-low">Price: High to Low</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="row g-4" id="productGrid">
+
+                        <!-- Product 1 -->
+                        <div class="col-6 col-md-4">
+                            <div class="card product-card h-100 border-0 shadow-sm">
+                                <div class="position-relative overflow-hidden">
+                                    <span class="badge bg-danger position-absolute top-0 start-0 m-3 z-2">-20%</span>
+                                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop" class="card-img-top product-img" alt="Nike Air Max">
+                                    <div class="product-overlay d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-light rounded-circle mx-1 shadow-sm add-to-cart-btn" data-id="1" data-name="Nike Air Max" data-price="129.99" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop">
+                                            <i class="bi bi-cart-plus"></i>
+                                        </button>
+                                        <a href="product.html" class="btn btn-light rounded-circle mx-1 shadow-sm"><i class="bi bi-eye"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-2 text-warning small">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                                        <span class="text-muted ms-1">(4.5)</span>
+                                    </div>
+                                    <h6 class="card-title fw-semibold mb-1">Nike Air Max</h6>
+                                    <p class="text-muted small mb-2">Fashion</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold fs-5 text-primary">$129.99</span>
+                                        <span class="text-decoration-line-through text-muted small">$159.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="col-6 col-md-4">
+                            <div class="card product-card h-100 border-0 shadow-sm">
+                                <div class="position-relative overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=600&auto=format&fit=crop" class="card-img-top product-img" alt="Classic Watch">
+                                    <div class="product-overlay d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-light rounded-circle mx-1 shadow-sm add-to-cart-btn" data-id="2" data-name="Classic Leather Watch" data-price="199.99" data-image="https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=600&auto=format&fit=crop">
+                                            <i class="bi bi-cart-plus"></i>
+                                        </button>
+                                        <a href="product.html" class="btn btn-light rounded-circle mx-1 shadow-sm"><i class="bi bi-eye"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-2 text-warning small">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                        <span class="text-muted ms-1">(5.0)</span>
+                                    </div>
+                                    <h6 class="card-title fw-semibold mb-1">Classic Leather Watch</h6>
+                                    <p class="text-muted small mb-2">Accessories</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold fs-5 text-primary">$199.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="col-6 col-md-4">
+                            <div class="card product-card h-100 border-0 shadow-sm">
+                                <div class="position-relative overflow-hidden">
+                                    <span class="badge bg-success position-absolute top-0 start-0 m-3 z-2">New</span>
+                                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=600&auto=format&fit=crop" class="card-img-top product-img" alt="Travel Backpack">
+                                    <div class="product-overlay d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-light rounded-circle mx-1 shadow-sm add-to-cart-btn" data-id="3" data-name="Travel Backpack" data-price="79.99" data-image="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=600&auto=format&fit=crop">
+                                            <i class="bi bi-cart-plus"></i>
+                                        </button>
+                                        <a href="product.html" class="btn btn-light rounded-circle mx-1 shadow-sm"><i class="bi bi-eye"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-2 text-warning small">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                                        <span class="text-muted ms-1">(4.0)</span>
+                                    </div>
+                                    <h6 class="card-title fw-semibold mb-1">Travel Backpack</h6>
+                                    <p class="text-muted small mb-2">Bags</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold fs-5 text-primary">$79.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="col-6 col-md-4">
+                            <div class="card product-card h-100 border-0 shadow-sm">
+                                <div class="position-relative overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=600&auto=format&fit=crop" class="card-img-top product-img" alt="Wireless Headphones">
+                                    <div class="product-overlay d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-light rounded-circle mx-1 shadow-sm add-to-cart-btn" data-id="4" data-name="Wireless Headphones" data-price="249.99" data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=600&auto=format&fit=crop">
+                                            <i class="bi bi-cart-plus"></i>
+                                        </button>
+                                        <a href="product.html" class="btn btn-light rounded-circle mx-1 shadow-sm"><i class="bi bi-eye"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-2 text-warning small">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                        <span class="text-muted ms-1">(4.8)</span>
+                                    </div>
+                                    <h6 class="card-title fw-semibold mb-1">Wireless Headphones</h6>
+                                    <p class="text-muted small mb-2">Electronics</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold fs-5 text-primary">$249.99</span>
+                                        <span class="text-decoration-line-through text-muted small">$299.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 5 -->
+                        <div class="col-6 col-md-4">
+                            <div class="card product-card h-100 border-0 shadow-sm">
+                                <div class="position-relative overflow-hidden">
+                                    <span class="badge bg-danger position-absolute top-0 start-0 m-3 z-2">-15%</span>
+                                    <img src="https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?q=80&w=600&auto=format&fit=crop" class="card-img-top product-img" alt="Smart Fitness Band">
+                                    <div class="product-overlay d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-light rounded-circle mx-1 shadow-sm add-to-cart-btn" data-id="5" data-name="Smart Fitness Band" data-price="49.99" data-image="https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?q=80&w=600&auto=format&fit=crop">
+                                            <i class="bi bi-cart-plus"></i>
+                                        </button>
+                                        <a href="product.html" class="btn btn-light rounded-circle mx-1 shadow-sm"><i class="bi bi-eye"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-2 text-warning small">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                                        <span class="text-muted ms-1">(4.3)</span>
+                                    </div>
+                                    <h6 class="card-title fw-semibold mb-1">Smart Fitness Band</h6>
+                                    <p class="text-muted small mb-2">Electronics</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold fs-5 text-primary">$49.99</span>
+                                        <span class="text-decoration-line-through text-muted small">$59.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 6 -->
+                        <div class="col-6 col-md-4">
+                            <div class="card product-card h-100 border-0 shadow-sm">
+                                <div class="position-relative overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600&auto=format&fit=crop" class="card-img-top product-img" alt="Denim Jacket">
+                                    <div class="product-overlay d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-light rounded-circle mx-1 shadow-sm add-to-cart-btn" data-id="6" data-name="Vintage Denim Jacket" data-price="89.99" data-image="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600&auto=format&fit=crop">
+                                            <i class="bi bi-cart-plus"></i>
+                                        </button>
+                                        <a href="product.html" class="btn btn-light rounded-circle mx-1 shadow-sm"><i class="bi bi-eye"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-2 text-warning small">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                                        <span class="text-muted ms-1">(4.1)</span>
+                                    </div>
+                                    <h6 class="card-title fw-semibold mb-1">Vintage Denim Jacket</h6>
+                                    <p class="text-muted small mb-2">Fashion</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold fs-5 text-primary">$89.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 7 -->
+                        <div class="col-6 col-md-4">
+                            <div class="card product-card h-100 border-0 shadow-sm">
+                                <div class="position-relative overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=600&auto=format&fit=crop" class="card-img-top product-img" alt="Running Shoes">
+                                    <div class="product-overlay d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-light rounded-circle mx-1 shadow-sm add-to-cart-btn" data-id="7" data-name="Pro Running Shoes" data-price="119.99" data-image="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=600&auto=format&fit=crop">
+                                            <i class="bi bi-cart-plus"></i>
+                                        </button>
+                                        <a href="product.html" class="btn btn-light rounded-circle mx-1 shadow-sm"><i class="bi bi-eye"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-2 text-warning small">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                        <span class="text-muted ms-1">(4.9)</span>
+                                    </div>
+                                    <h6 class="card-title fw-semibold mb-1">Pro Running Shoes</h6>
+                                    <p class="text-muted small mb-2">Fashion</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold fs-5 text-primary">$119.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 8 -->
+                        <div class="col-6 col-md-4">
+                            <div class="card product-card h-100 border-0 shadow-sm">
+                                <div class="position-relative overflow-hidden">
+                                    <span class="badge bg-warning text-dark position-absolute top-0 start-0 m-3 z-2">Hot</span>
+                                    <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=600&auto=format&fit=crop" class="card-img-top product-img" alt="Sunglasses">
+                                    <div class="product-overlay d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-light rounded-circle mx-1 shadow-sm add-to-cart-btn" data-id="8" data-name="Polarized Sunglasses" data-price="159.99" data-image="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=600&auto=format&fit=crop">
+                                            <i class="bi bi-cart-plus"></i>
+                                        </button>
+                                        <a href="product.html" class="btn btn-light rounded-circle mx-1 shadow-sm"><i class="bi bi-eye"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-2 text-warning small">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                                        <span class="text-muted ms-1">(4.6)</span>
+                                    </div>
+                                    <h6 class="card-title fw-semibold mb-1">Polarized Sunglasses</h6>
+                                    <p class="text-muted small mb-2">Accessories</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold fs-5 text-primary">$159.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav class="mt-5" aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link rounded-circle mx-1" href="#"><i class="bi bi-chevron-left"></i></a></li>
+                            <li class="page-item active"><a class="page-link rounded-circle mx-1" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link rounded-circle mx-1" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link rounded-circle mx-1" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link rounded-circle mx-1" href="#"><i class="bi bi-chevron-right"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-body-tertiary pt-5 pb-4 border-top">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <div class="col-lg-4 col-md-6">
+                    <a class="navbar-brand fw-bold fs-4 text-primary mb-3 d-block" href="index.html">
+                        <i class="bi bi-bag-check-fill me-2"></i>ShopEase
+                    </a>
+                    <p class="text-muted mb-4">Your one-stop destination for premium shopping. Quality products, unbeatable prices, and exceptional customer service.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="btn btn-outline-secondary rounded-circle p-2"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="btn btn-outline-secondary rounded-circle p-2"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="btn btn-outline-secondary rounded-circle p-2"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-secondary rounded-circle p-2"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-decoration-none text-muted hover-primary">Home</a></li>
+                        <li class="mb-2"><a href="shop.html" class="text-decoration-none text-muted hover-primary">Shop</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-decoration-none text-muted hover-primary">About Us</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-decoration-none text-muted hover-primary">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-3">Customer Service</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted hover-primary">FAQ</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted hover-primary">Shipping Policy</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted hover-primary">Returns & Exchanges</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted hover-primary">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="fw-bold mb-3">Contact Us</h6>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="bi bi-geo-alt-fill text-primary me-3 mt-1"></i>
+                            <span>123 Commerce Street, Suite 100<br>New York, NY 10001, USA</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="bi bi-envelope-fill text-primary me-3"></i>
+                            <span>support@shopease.com</span>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <i class="bi bi-telephone-fill text-primary me-3"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-muted small">&copy; 2024 ShopEase. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                    <i class="bi bi-credit-card-2-front fs-4 text-muted me-2"></i>
+                    <i class="bi bi-paypal fs-4 text-muted me-2"></i>
+                    <i class="bi bi-apple fs-4 text-muted me-2"></i>
+                    <i class="bi bi-google fs-4 text-muted"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification for Cart -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="cartToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="bi bi-check-circle-fill me-2"></i> Item added to cart successfully!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+
+    <!-- Inline script for Price Range Slider UI update -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const priceRange = document.getElementById('priceRange');
+            const priceValue = document.getElementById('priceValue');
+            if (priceRange && priceValue) {
+                priceRange.addEventListener('input', (e) => {
+                    priceValue.textContent = `$${e.target.value}`;
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,423 @@
+/* =========================================
+   1. ROOT VARIABLES & THEME CONFIGURATION
+   ========================================= */
+
+:root {
+    /* Premium Color Palette */
+    --primary-color: #0d6efd;
+    --primary-hover: #0b5ed7;
+    --secondary-color: #6c757d;
+    --accent-color: #ffc107;
+    /* Typography */
+    --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.15);
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+}
+
+
+/* Dark Mode Specific Overrides */
+
+[data-bs-theme="dark"] {
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+
+/* =========================================
+   2. GLOBAL STYLES
+   ========================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-base);
+    transition: background-color var(--transition-base), color var(--transition-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Custom Scrollbar */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 10px;
+    opacity: 0.5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+
+/* =========================================
+   3. NAVBAR & HEADER
+   ========================================= */
+
+.navbar {
+    transition: all var(--transition-base);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    letter-spacing: -0.5px;
+    transition: transform var(--transition-fast);
+}
+
+.navbar-brand:hover {
+    transform: scale(1.02);
+}
+
+.nav-link {
+    position: relative;
+    transition: color var(--transition-fast);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--primary-color);
+    transition: all var(--transition-base);
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
+}
+
+
+/* Search Input Styling */
+
+.input-group-text {
+    border-radius: var(--radius-md) 0 0 var(--radius-md) !important;
+}
+
+.form-control {
+    border-radius: 0 var(--radius-md) var(--radius-md) 0 !important;
+    transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+}
+
+
+/* =========================================
+   4. HERO SECTION (FIXED)
+   ========================================= */
+
+
+/* Fixed: Reduced height to 60vh to prevent massive empty gap */
+
+.hero-section {
+    height: 60vh;
+    min-height: 400px;
+    max-height: 600px;
+}
+
+
+/* Fixed: Ensure carousel items fill the parent height */
+
+.carousel-item {
+    height: 100%;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 8s ease;
+    z-index: 0;
+    /* Background sits at bottom */
+}
+
+.carousel-item.active .hero-bg {
+    transform: scale(1.05);
+}
+
+
+/* Fixed: Stronger gradient overlay to ensure text readability */
+
+.hero-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Fixed: Gradient is now stronger on the left where text sits */
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.1) 100%);
+    z-index: 1;
+    /* Overlay sits above background */
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 6px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    transition: all var(--transition-fast);
+}
+
+.carousel-indicators .active {
+    background-color: #fff;
+    transform: scale(1.2);
+}
+
+
+/* =========================================
+   5. CATEGORY CARDS
+   ========================================= */
+
+.category-card {
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    cursor: pointer;
+    background-color: var(--bs-body-bg);
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.category-icon {
+    transition: transform var(--transition-base);
+}
+
+.category-card:hover .category-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+
+/* =========================================
+   6. PRODUCT CARDS
+   ========================================= */
+
+.product-card {
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    overflow: hidden;
+    background-color: var(--bs-body-bg);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.product-img {
+    height: 250px;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.08);
+}
+
+
+/* Product Overlay (Add to Cart / View) */
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    z-index: 1;
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.product-overlay .btn {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all var(--transition-base);
+}
+
+.product-card:hover .product-overlay .btn {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.product-overlay .btn:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.product-overlay .btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+
+/* =========================================
+   7. BUTTONS & UTILITIES
+   ========================================= */
+
+.btn {
+    transition: all var(--transition-fast);
+    font-weight: 500;
+}
+
+.btn-primary {
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(13, 110, 253, 0.4);
+}
+
+.btn-outline-primary:hover {
+    transform: translateY(-2px);
+}
+
+.hover-primary {
+    transition: color var(--transition-fast);
+}
+
+.hover-primary:hover {
+    color: var(--primary-color) !important;
+}
+
+
+/* =========================================
+   8. TESTIMONIALS & NEWSLETTER
+   ========================================= */
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-size: 50%;
+    width: 3rem;
+    height: 3rem;
+}
+
+
+/* =========================================
+   9. FOOTER
+   ========================================= */
+
+footer {
+    font-size: 0.95rem;
+}
+
+footer a {
+    transition: color var(--transition-fast), padding-left var(--transition-fast);
+}
+
+footer a:hover {
+    padding-left: 4px;
+}
+
+
+/* =========================================
+   10. DARK MODE SPECIFIC TWEAKS
+   ========================================= */
+
+[data-bs-theme="dark"] .product-card,
+[data-bs-theme="dark"] .category-card {
+    background-color: var(--bs-tertiary-bg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-bs-theme="dark"] .hero-bg::before {
+    /* Fixed: Darker gradient for dark mode readability */
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+[data-bs-theme="dark"] .navbar.bg-body-tertiary {
+    background-color: rgba(33, 37, 41, 0.85) !important;
+}
+
+[data-bs-theme="dark"] .form-control {
+    background-color: var(--bs-body-bg);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-bs-theme="dark"] .form-control:focus {
+    background-color: var(--bs-body-bg);
+    border-color: var(--primary-color);
+}
+
+
+/* =========================================
+   11. RESPONSIVE ADJUSTMENTS
+   ========================================= */
+
+@media (max-width: 991.98px) {
+    .hero-section {
+        height: 70vh;
+        /* Slightly taller on tablet to fit content */
+    }
+    .hero-bg::before {
+        background: rgba(0, 0, 0, 0.6);
+    }
+    .product-img {
+        height: 200px;
+    }
+    .navbar-collapse {
+        background-color: var(--bs-body-bg);
+        padding: 1rem;
+        border-radius: var(--radius-md);
+        margin-top: 1rem;
+        box-shadow: var(--shadow-md);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-section {
+        height: 60vh;
+        min-height: 400px;
+    }
+    .display-3 {
+        font-size: 2.5rem;
+    }
+    .product-img {
+        height: 180px;
+    }
+}

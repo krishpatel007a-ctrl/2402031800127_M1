@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Review your shopping cart at ShopEase">
+    <title>Shopping Cart | ShopEase</title>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary shadow-sm" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4 text-primary" href="index.html">
+                <i class="bi bi-bag-check-fill me-2"></i>ShopEase
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <form class="d-flex mx-lg-4 my-3 my-lg-0 flex-grow-1" role="search">
+                    <div class="input-group">
+                        <span class="input-group-text bg-body border-end-0"><i class="bi bi-search text-muted"></i></span>
+                        <input class="form-control border-start-0 ps-0" type="search" placeholder="Search products..." aria-label="Search">
+                    </div>
+                </form>
+                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link fw-medium" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center ms-lg-4 mt-3 mt-lg-0 gap-3">
+                    <button class="btn btn-outline-secondary rounded-circle p-2" id="themeToggle" title="Toggle Theme">
+                        <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+                    </button>
+                    <a href="cart.html" class="btn btn-primary position-relative rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                        <i class="bi bi-cart3 fs-5"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== PAGE HEADER ==================== -->
+    <section class="bg-body-tertiary py-4 border-bottom">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-muted">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+                </ol>
+            </nav>
+            <h1 class="fw-bold mt-2 mb-0">Your Shopping Cart</h1>
+            <p class="text-muted mb-0">Review your items and proceed to checkout</p>
+        </div>
+    </section>
+
+    <!-- ==================== CART CONTENT ==================== -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-5">
+
+                <!-- Left Column: Cart Items -->
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <!-- Header -->
+                            <div class="d-none d-md-flex row text-muted fw-semibold small pb-3 border-bottom mb-3">
+                                <div class="col-md-6">Product</div>
+                                <div class="col-md-2 text-center">Quantity</div>
+                                <div class="col-md-2 text-md-end">Price</div>
+                                <div class="col-md-2 text-md-end">Action</div>
+                            </div>
+
+                            <!-- Cart Items Container (Populated by JS) -->
+                            <div id="cartItemsContainer">
+                                <!-- Loading state before JS renders -->
+                                <div class="text-center py-5">
+                                    <div class="spinner-border text-primary mb-3" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    <p class="text-muted">Loading your cart...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Continue Shopping Button -->
+                    <div class="mt-4">
+                        <a href="shop.html" class="btn btn-outline-primary rounded-pill px-4">
+                            <i class="bi bi-arrow-left me-2"></i> Continue Shopping
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Order Summary -->
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm sticky-top" style="top: 100px;">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold mb-4">Order Summary</h5>
+
+                            <!-- Promo Code -->
+                            <div class="mb-4">
+                                <label for="promoCode" class="form-label small fw-semibold">Discount Code</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="promoCode" placeholder="Enter code">
+                                    <button class="btn btn-outline-secondary" type="button">Apply</button>
+                                </div>
+                            </div>
+
+                            <!-- Totals -->
+                            <ul class="list-unstyled mb-4 border-top border-bottom py-3">
+                                <li class="d-flex justify-content-between mb-2 text-muted">
+                                    <span>Subtotal</span>
+                                    <span id="cartSubtotal">$0.00</span>
+                                </li>
+                                <li class="d-flex justify-content-between mb-2 text-muted">
+                                    <span>Shipping</span>
+                                    <span id="cartShipping">$0.00</span>
+                                </li>
+                                <li class="d-flex justify-content-between mb-2 text-muted">
+                                    <span>Tax (8%)</span>
+                                    <span id="cartTax">$0.00</span>
+                                </li>
+                            </ul>
+
+                            <!-- Grand Total -->
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <span class="fw-bold fs-5">Grand Total</span>
+                                <span id="cartTotal" class="fw-bold fs-4 text-primary">$0.00</span>
+                            </div>
+
+                            <!-- Checkout Button -->
+                            <button class="btn btn-primary w-100 btn-lg rounded-pill fw-semibold shadow-sm" onclick="alert('Proceeding to secure checkout...')">
+                                Proceed to Checkout <i class="bi bi-lock-fill ms-2"></i>
+                            </button>
+
+                            <!-- Trust Badges -->
+                            <div class="text-center mt-4 text-muted small">
+                                <i class="bi bi-shield-check text-success me-1"></i> Secure SSL Encrypted Checkout
+                            </div>
+                            <div class="d-flex justify-content-center gap-3 mt-3 text-muted fs-4">
+                                <i class="bi bi-credit-card-2-front"></i>
+                                <i class="bi bi-paypal"></i>
+                                <i class="bi bi-apple"></i>
+                                <i class="bi bi-google"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-body-tertiary pt-5 pb-4 border-top">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <div class="col-lg-4 col-md-6">
+                    <a class="navbar-brand fw-bold fs-4 text-primary mb-3 d-block" href="index.html">
+                        <i class="bi bi-bag-check-fill me-2"></i>ShopEase
+                    </a>
+                    <p class="text-muted mb-4">Your one-stop destination for premium shopping. Quality products, unbeatable prices, and exceptional customer service.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="btn btn-outline-secondary rounded-circle p-2"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="btn btn-outline-secondary rounded-circle p-2"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="btn btn-outline-secondary rounded-circle p-2"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-secondary rounded-circle p-2"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-decoration-none text-muted hover-primary">Home</a></li>
+                        <li class="mb-2"><a href="shop.html" class="text-decoration-none text-muted hover-primary">Shop</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-decoration-none text-muted hover-primary">About Us</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-decoration-none text-muted hover-primary">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-3">Customer Service</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted hover-primary">FAQ</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted hover-primary">Shipping Policy</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted hover-primary">Returns & Exchanges</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted hover-primary">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="fw-bold mb-3">Contact Us</h6>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="bi bi-geo-alt-fill text-primary me-3 mt-1"></i>
+                            <span>123 Commerce Street, Suite 100<br>New York, NY 10001, USA</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="bi bi-envelope-fill text-primary me-3"></i>
+                            <span>support@shopease.com</span>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <i class="bi bi-telephone-fill text-primary me-3"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-muted small">&copy; 2024 ShopEase. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                    <i class="bi bi-credit-card-2-front fs-4 text-muted me-2"></i>
+                    <i class="bi bi-paypal fs-4 text-muted me-2"></i>
+                    <i class="bi bi-apple fs-4 text-muted me-2"></i>
+                    <i class="bi bi-google fs-4 text-muted"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification for Cart -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="cartToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="bi bi-check-circle-fill me-2"></i> Item added to cart successfully!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
