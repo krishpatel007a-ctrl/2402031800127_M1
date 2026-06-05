@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery All Operations</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        #box {
+            width: 150px;
+            height: 150px;
+            background: red;
+            margin: 20px;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="heading">jQuery Practice</h1>
+
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+    <button id="toggle">Toggle</button>
+    <button id="fade">Fade Toggle</button>
+    <button id="slide">Slide Toggle</button>
+    <button id="animate">Animate</button>
+
+    <div id="box"></div>
+
+    <hr>
+
+    <button id="textBtn">Change Text</button>
+    <button id="htmlBtn">Change HTML</button>
+    <button id="cssBtn">Change CSS</button>
+
+    <hr>
+
+    <ul id="list">
+        <li>Apple</li>
+        <li>Samsung</li>
+    </ul>
+
+    <button id="appendBtn">Append</button>
+    <button id="prependBtn">Prepend</button>
+    <button id="removeBtn">Remove</button>
+
+    <hr>
+
+    <div class="parent">
+        Parent
+        <div class="child">Child</div>
+    </div>
+
+    <button id="parentBtn">Parent</button>
+    <button id="childBtn">Children</button>
+
+    <script>
+        $(document).ready(function() {
+
+            // Hide
+            $("#hide").click(function() {
+                $("#box").hide();
+            });
+
+            // Show
+            $("#show").click(function() {
+                $("#box").show();
+            });
+
+            // Toggle
+            $("#toggle").click(function() {
+                $("#box").toggle();
+            });
+
+            // Fade
+            $("#fade").click(function() {
+                $("#box").fadeToggle();
+            });
+
+            // Slide
+            $("#slide").click(function() {
+                $("#box").slideToggle();
+            });
+
+            // Animate
+            $("#animate").click(function() {
+                $("#box").animate({
+                    left: "300px",
+                    opacity: "0.5"
+                });
+            });
+
+            // Text
+            $("#textBtn").click(function() {
+                $("#heading").text("Welcome Krish");
+            });
+
+            // HTML
+            $("#htmlBtn").click(function() {
+                $("#heading").html("<span style='color:red'>HTML Changed</span>");
+            });
+
+            // CSS
+            $("#cssBtn").click(function() {
+                $("#heading").css({
+                    color: "green",
+                    fontSize: "40px"
+                });
+            });
+
+            // Append
+            $("#appendBtn").click(function() {
+                $("#list").append("<li>iPhone</li>");
+            });
+
+            // Prepend
+            $("#prependBtn").click(function() {
+                $("#list").prepend("<li>MacBook</li>");
+            });
+
+            // Remove
+            $("#removeBtn").click(function() {
+                $("#list li:last").remove();
+            });
+
+            // Parent Traversing
+            $("#parentBtn").click(function() {
+                $(".child").parent().css("background", "yellow");
+            });
+
+            // Children Traversing
+            $("#childBtn").click(function() {
+                $(".parent").children().css("color", "blue");
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
