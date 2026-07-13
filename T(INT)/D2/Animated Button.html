@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Button </title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: lightgray;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .animated-title {
+            font-size: 28px;
+            color: #1f2937;
+            margin-bottom: 8px;
+            position: relative;
+            text-align: center;
+            opacity: 0;
+            animation: slideDownFade 0.8s ease-out forwards;
+        }
+        
+        .animated-title::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 4px;
+            background-color: #10b981;
+            border-radius: 2px;
+            width: 0;
+            animation: expandWidth 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.6s forwards;
+        }
+        
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .animated-btn {
+            position: relative;
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #10b981;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            overflow: hidden;
+            z-index: 1;
+            transition: color 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2), 0 2px 4px -1px rgba(16, 185, 129, 0.1);
+        }
+        
+        .animated-btn::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #047857;
+            transition: top 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: -1;
+        }
+        
+        .animated-btn:hover {
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(4, 120, 87, 0.4);
+        }
+        
+        .animated-btn:hover::before {
+            top: 0;
+        }
+        
+        .animated-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 4px 6px -1px rgba(4, 120, 87, 0.2);
+        }
+        
+        @keyframes slideDownFade {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes expandWidth {
+            from {
+                width: 0;
+            }
+            to {
+                width: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2 class="animated-title">Animated Button</h2>
+
+    <div class="button-container">
+        <button class="animated-btn" type="button">Get Started</button>
+    </div>
+
+</body>
+
+</html>
