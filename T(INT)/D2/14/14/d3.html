@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            margin: 20px auto;
+            height: 80px;
+        }
+        
+        th,
+        td {
+            border: 2px solid black;
+            padding: 20px;
+            text-align: CENTER;
+            font-weight: bold;
+            background-color: LIGHTGRAY;
+        }
+        
+        th {
+            background-color: lightgoldenrodyellow;
+        }
+        
+        .krish {
+            background-color: lightblue;
+        }
+        
+        .city {
+            background-color: lightgreen;
+            color: black;
+            border: 2px solid black;
+            margin: 20px;
+            padding: 20px;
+        }
+        
+        #hey {
+            background-color: lightgray;
+            color: black;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        a:link,
+        a:visited {
+            background-color: #f44336;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        a:hover,
+        a:active {
+            background-color: red;
+        }
+        
+        ul {
+            list-style-image: url('sqpurple.gif');
+            list-style-type: square;
+        }
+        
+        table.green-border,
+        table.green-border th,
+        table.green-border td {
+            border: 1px solid green;
+            border-collapse: collapse;
+            background-color: rgb(204, 206, 244);
+            padding: 8px;
+        }
+        
+        table.green-border th {
+            background-color: red;
+        }
+        
+        #panel,
+        .flip {
+            padding: 10px;
+            text-align: center;
+            background-color: #04AA6D;
+            color: white;
+            border: solid 1px #a6d8a8;
+            margin: auto;
+            cursor: pointer;
+        }
+        
+        #panel {
+            display: none;
+        }
+        
+        div.ex1 {
+            width: 500px;
+            position: relative;
+            border: 3px solid #73AD21;
+        }
+        
+        div.ex2 {
+            max-width: 500px;
+            height: 100px;
+            position: relative;
+            border: 3px solid #73AD21;
+        }
+        
+        #overflowTest {
+            background: red;
+            color: black;
+            padding: 15px;
+            width: 90%;
+            height: 100px;
+            overflow: scroll;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TABLE:- </h1>
+    <table>
+        <tr>
+            <th>sr no</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>CITY</th>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>KRISH</td>
+            <td>krish123@gmail.com</td>
+            <td>AHMEDABAD</td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>AYUSH</td>
+            <td>ayush321@gmail.com</td>
+            <td>SURAT</td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>RAVI</td>
+            <td>ravi321@gmail.com</td>
+            <td>VADODRA</td>
+        </tr>
+
+        <tr>
+            <td>4</td>
+            <td>RAJ</td>
+            <td>raj321@gmail.com</td>
+            <td>AHMEDABAD</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h1>Description Lists:- </h1>
+    <dl>
+        <dt>krish</dt>
+        <dd>- my name is krish</dd>
+        <dt>email</dt>
+        <dd>- krish123@gmail.com</dd>
+    </dl>
+    <hr>
+    <h2>An unordered HTML list:- </h2>
+
+    <ul>
+        <li>AHM</li>
+        <li>SURAT</li>
+        <li>VADODRA</li>
+    </ul>
+    <hr>
+    <h3>An ordered HTML list:- </h3>
+    <ol>
+        <li>ORANGE</li>
+        <li>MANGO</li>
+        <li>APPLE</li>
+    </ol>
+    <hr>
+    <h1>PRACTICAL FOR BLOCK AND INLINE ELEMENTS:- </h1>
+
+    <h2>Block Elements:- </h2>
+    <p style="border: 1px solid red">HEY THERE</p>
+    <div style="border: 1px solid blue">HELLO THERE</div>
+
+    <h2>Inline Elements:- </h2>
+    <p>hey <span style="color: red;">krish</span> here.</p>
+    <hr>
+
+    <h1>DIV:- </h1>
+    <div class="krish">I am a krish</div>
+    <hr>
+
+    <h1>CLASSES:- </h1>
+    <div class="city">
+        <h2>AHM</h2>
+        <p>I'M LIVING IN AHM.</p>
+    </div>
+
+    <div class="city">
+        <h2>SURAT</h2>
+        <p>SURAT IS DIMOND CITY.</p>
+    </div>
+    <hr>
+
+    <h1>ID:- </h1>
+    <h2 id="hey">GOOD MORNING!</h2>
+    <hr>
+
+    <h1>Buttons:- </h1>
+    <button onclick="alert('Hey!')">Click Me</button>
+    <button onclick="alert('DONE!!')">Submit</button>
+    <button onclick="alert('AGAIN!!')">Reset</button>
+    <hr>
+
+    <h1>iframes:- </h1>
+    <iframe height="200" width="300" src="https://www.youtube.com/embed/0V5j9w6g8kY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <h2>LINK:- </h2>
+    <a href="https://studentportal.silveroakuni.ac.in/UMSStudents/login.aspx" target="_blank">Visit Student Portal!</a>
+    <hr>
+
+    <h1>js:- </h1>
+    <button type="button" onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
+    <p id="demo"></p>
+    <hr>
+
+    <h2>Link Button:- </h2>
+    <a href="https://www.google.com" target="_blank">This is a link</a>
+    <hr>
+
+    <h2>The list:- </h2>
+    <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+    <hr>
+
+    <h2>Add a border to a table:- </h2>
+
+    <table class="green-border">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+        </tr>
+        <tr>
+            <td>KRISH</td>
+            <td>PATEL</td>
+        </tr>
+        <tr>
+            <td>ABC</td>
+            <td>XYZ</td>
+        </tr>
+        <tr>
+            <td>QWE</td>
+            <td>ZXC</td>
+        </tr>
+    </table>
+    <hr>
+    <h2>HIDE AND SHOW:- </h2>
+    <p class="flip" onclick="myFunction()">Click to show panel</p>
+
+    <div id="panel">
+        <p>This panel contains a div element, which is hidden by default (display: none).</p>
+        <p>We use JavaScript to show it (display: block).</p>
+
+    </div>
+
+    <script>
+        function myFunction() {
+            document.getElementById("panel").style.display = "block";
+        }
+    </script>
+    <hr>
+
+    <h2>CSS Max-width</h2>
+
+    <div class="ex1">1,2,3,4...</div>
+    <br>
+    <div class="ex2">ABCD....</div>
+    <hr>
+
+    <h2>CSS overflow Property:- </h2>
+
+    <div id="overflowTest">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip
+        ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
+        delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit
+        eorum claritatem.</div>
+</body>
+
+</html>
