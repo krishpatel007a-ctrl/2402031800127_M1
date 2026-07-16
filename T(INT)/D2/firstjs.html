@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <script>
+        let x = 20;
+        const fname = "Krish";
+
+        let x1 = 1;
+        let y1 = 1;
+        let sum = x1 + y1;
+
+        function myFunction() {
+            document.getElementById("demo4").innerHTML = "123";
+        }
+
+        function showAgeMessage() {
+            document.getElementById("demo_age").innerHTML = fname + " is " + x + " years old.";
+        }
+
+        function showSumMessage() {
+            document.getElementById("demo5").innerHTML = "The sum is " + sum;
+        }
+
+        function showGreetingMessage() {
+            const hour = new Date().getHours();
+            let greeting;
+
+            if (hour < 12) {
+                greeting = "Good day";
+            } else {
+                greeting = "Good evening";
+            }
+
+            document.getElementById("demo6").innerHTML = greeting;
+        }
+
+        function showDayMessage() {
+            let day;
+            let date = new Date().getDay();
+
+            switch (date) {
+                case 0:
+                    day = "Sunday";
+                    break;
+                case 1:
+                    day = "Monday";
+                    break;
+                case 2:
+                    day = "Tuesday";
+                    break;
+                case 3:
+                    day = "Wednesday";
+                    break;
+                case 4:
+                    day = "Thursday";
+                    break;
+                case 5:
+                    day = "Friday";
+                    break;
+                case 6:
+                    day = "Saturday";
+            }
+
+            document.getElementById("demo7").innerHTML = "Today is " + day;
+        }
+
+        function showDefaultSwitchMessage() {
+            let text;
+            switch (new Date().getDay()) {
+                default: text = "Looking forward to the Weekend";
+                break;
+                case 6:
+                        text = "Today is Saturday";
+                    break;
+                case 0:
+                        text = "Today is Sunday";
+            }
+            document.getElementById("demo8").innerHTML = text;
+        }
+
+        function showLoopMessage() {
+            const cars = ["BMW", "BENZ", "MARUTI", "BUGGATI", "FORD", "AUDI"];
+            let loopText = "";
+            for (let i = 0; i < cars.length; i++) {
+                loopText += cars[i] + "<br>";
+            }
+            document.getElementById("demo9").innerHTML = loopText;
+        }
+    </script>
+</head>
+
+<body onload="showAgeMessage(); showSumMessage(); showGreetingMessage(); showDayMessage(); showDefaultSwitchMessage(); showLoopMessage();">
+    <h2>DAY 1 OF JS:- </h2>
+
+    <p id="demo">FIRST JS.</p>
+
+    <button type="button" onclick='document.getElementById("demo").innerHTML = "HEY THERE!"'>Click Me!</button>
+    <hr>
+
+    <h2>VARIABLE PRACTICAL:- </h2>
+    <p id="demo_age"></p>
+    <hr>
+
+    <h2>click and change:- </h2>
+    <p>change the photo.</p>
+
+    <button onclick="document.getElementById('myImage').src='P1.jpeg'">Turn on dark.</button>
+    <img id="myImage" src="P2.jpeg" style="width:100px">
+
+    <button onclick="document.getElementById('myImage').src='P2.jpeg'">Turn on light.</button>
+    <hr>
+
+    <h2>FONT CHANGE:- </h2>
+    <p id="demo2">GO FOR THE BIG FONTS.</p>
+    <button type="button" onclick="document.getElementById('demo2').style.fontSize='35px'">Click Me!</button>
+    <hr>
+
+    <h2>HIDDEN AND SHOW:- </h2>
+
+    <p id="demo3">HIDE AND SHOW THE TEXT.</p>
+
+    <button type="button" onclick="document.getElementById('demo3').style.display='none'">HIDE!</button>
+    <button type="button" onclick="document.getElementById('demo3').style.display='block'">SHOW!</button>
+    <hr>
+
+    <h2>WITH TAG:- </h2>
+
+    <p id="demo4">ABC</p>
+
+    <button type="button" onclick="myFunction()">Try it</button>
+    <hr>
+
+    <h1>OPERATOR:- </h1>
+    <p id="demo5"></p>
+    <hr>
+
+    <h1>If and Else condition:- </h1>
+    <p id="demo6"></p>
+    <hr>
+
+    <h2>DAY OF THE WEEK:- </h2>
+    <p id="demo7"></p>
+    <hr>
+
+    <h2>Switch Controls:- </h2>
+    <p>The default case does not have to be the last case in a switch block.</p>
+    <p id="demo8"></p>
+    <hr>
+
+    <h1>Loops:- </h1>
+    <p id="demo9"></p>
+    <hr>
+
+</body>
+
+</html>
