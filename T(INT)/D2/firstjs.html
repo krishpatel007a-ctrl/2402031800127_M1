@@ -13,6 +13,19 @@
         let y1 = 1;
         let sum = x1 + y1;
 
+        let timer;
+
+        function startInteractiveTimer() {
+            timer = setTimeout(function() {
+                document.getElementById("demo18").innerHTML = "Finished";
+            }, 5000);
+        }
+
+        function stopTimer() {
+            clearTimeout(timer);
+            document.getElementById("demo18").innerHTML = "Timer stopped";
+        }
+
         function myFunction() {
             document.getElementById("demo4").innerHTML = "123";
         }
@@ -90,11 +103,99 @@
             }
             document.getElementById("demo9").innerHTML = loopText;
         }
+
+        function showTemplateStringMessage() {
+            let firstName = "Krish";
+            let lastName = "Patel";
+            let text = `Welcome ${firstName} ${lastName}!`;
+            document.getElementById("demo10").innerHTML = text;
+        }
+
+        function showExpressionMessage() {
+            let price = 10;
+            let VAT = 0.25;
+            let total = `Total: ${(price * (1 + VAT)).toFixed(2)}`;
+            document.getElementById("demo11").innerHTML = total;
+        }
+
+        function showHtmlTemplateMessage() {
+            let header = "Template Strings:- ";
+            let tags = ["template strings", "javascript", "es6"];
+            let html = `<h2>${header}</h2><ul>`;
+
+            for (const x of tags) {
+                html += `<li>${x}</li>`;
+            }
+
+            html += `</ul>`;
+            document.getElementById("demo12").innerHTML = html;
+        }
+
+        function showNumberToStringMessage() {
+            let num = 123;
+            let text = num.toString(2);
+            document.getElementById("demo13").innerHTML = text;
+        }
+
+        function showValueOfMessage() {
+            let xVal = 123;
+            document.getElementById("demo14").innerHTML =
+                xVal.valueOf() + "<br>" +
+                (123).valueOf() + "<br>" +
+                (100 + 23).valueOf();
+        }
+
+        function startTimer() {
+            setTimeout(timerFunction, 300);
+        }
+
+        function timerFunction() {
+            myDisplayer("Hello Krish Here!");
+        }
+
+        function myDisplayer(text) {
+            let demo = document.getElementById("demo15");
+            demo.innerHTML += text + "<br>";
+        }
+
+        function startSecondTimer() {
+            myDisplayer2("Start");
+            setTimeout(function() {
+                myDisplayer2("Timer");
+            }, 3000);
+            myDisplayer2("End");
+        }
+
+        function myDisplayer2(text) {
+            let demo = document.getElementById("demo16");
+            demo.innerHTML += text + "<br>";
+        }
+
+        function startThirdTimer() {
+            setTimeout(function() {
+                myDisplayer3("Timer finished");
+            }, 1000);
+
+            let i = 3e9;
+            while (--i > 0);
+        }
+
+        function myDisplayer3(text) {
+            let demo = document.getElementById("demo17");
+            demo.innerHTML += text + "<br>";
+        }
+
+        function showTime() {
+            let d = new Date();
+            document.getElementById("demo19").innerHTML = d.toLocaleTimeString();
+        }
+
+        setInterval(showTime, 1000);
     </script>
 </head>
 
-<body onload="showAgeMessage(); showSumMessage(); showGreetingMessage(); showDayMessage(); showDefaultSwitchMessage(); showLoopMessage();">
-    <h2>DAY 1 OF JS:- </h2>
+<body onload="showAgeMessage(); showSumMessage(); showGreetingMessage(); showDayMessage(); showDefaultSwitchMessage(); showLoopMessage(); showTemplateStringMessage(); showExpressionMessage(); showHtmlTemplateMessage(); showNumberToStringMessage(); showValueOfMessage(); startTimer(); startSecondTimer(); startThirdTimer(); showTime();">
+    <h2>START JS(1) :- </h2>
 
     <p id="demo">FIRST JS.</p>
 
@@ -146,15 +247,54 @@
     <p id="demo7"></p>
     <hr>
 
-    <h2>Switch Controls:- </h2>
-    <p>The default case does not have to be the last case in a switch block.</p>
+    <h2>SWITCH CONTROL:- </h2>
+    <p>switch block.</p>
     <p id="demo8"></p>
     <hr>
 
-    <h1>Loops:- </h1>
+    <h1>LOOPS:- </h1>
     <p id="demo9"></p>
     <hr>
 
+    <h1>JavaScript Template:- </h1>
+    <p id="demo10"></p>
+    <hr>
+
+    <h2>Expressions in Strings:- </h2>
+    <p id="demo11"></p>
+    <hr>
+
+    <div id="demo12"></div>
+    <hr>
+
+    <h1>JavaScript Numbers:- </h1>
+    <p id="demo13"></p>
+    <hr>
+
+    <h2>JavaScript Number Methods:- </h2>
+    <p id="demo14"></p>
+    <hr>
+
+    <h1>JavaScript Timers:- </h1>
+    <p id="demo15"></p>
+    <hr>
+
+    <h2>The setTimeout() Method</h2>
+    <p id="demo16"></p>
+    <hr>
+
+    <h2>The setTimeout Delay Min:- </h2>
+    <p id="demo17"></p>
+    <hr>
+
+    <h2>start and stop:- </h2>
+    <button onclick="startInteractiveTimer()">Start Timer</button>
+    <button onclick="stopTimer()">Stop Timer</button>
+    <p id="demo18"></p>
+    <hr>
+
+    <h2>Live Clock:- </h2>
+    <p id="demo19"></p>
 </body>
 
 </html>
