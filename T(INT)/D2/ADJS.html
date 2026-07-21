@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADVANCE JS</title>
+    <script>
+        function myFunction(a, b) {
+            return a * b;
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            let x = myFunction(4, 3);
+            document.getElementById("demo").innerHTML = "The product is " + x;
+
+            const multiply = function(a, b) {
+                return a * b
+            };
+            let z = multiply(2, 3);
+            document.getElementById("demo1").innerHTML = z;
+
+            function displayDate() {
+                document.getElementById("demo2").innerHTML = Date();
+            }
+            document.getElementById("myButton").addEventListener("click", displayDate);
+
+            setTimeout(showMessage, 3000);
+
+            function showMessage() {
+                document.getElementById("demo3").innerHTML = "HEY THERE !!";
+            }
+
+            const numbers = [10, 20, 30, 40, 50];
+            let txt = "";
+
+            function formatNumber(value) {
+                txt += value + "<br>";
+            }
+
+            numbers.forEach(formatNumber);
+            document.getElementById("demo4").innerHTML = txt;
+
+            function myDisplayer(some) {
+                document.getElementById("demo5").innerHTML = some;
+            }
+
+            function myCalculator(num1, num2) {
+                let sum = num1 + num2;
+                return sum;
+            }
+            let result = myCalculator(5, 5);
+            myDisplayer(result);
+
+            let result1 = globalThis === window;
+
+            document.getElementById("demo6").innerHTML = result1;
+
+            const hello = () => {
+                document.getElementById("demo7").innerHTML += "<br>This is: " + this;
+            }
+
+            window.addEventListener("load", hello);
+            document.getElementById("btn").addEventListener("click", hello);
+
+            const person = {
+                firstName: "Krish",
+                lastName: "Patel",
+                fullName: function() {
+                    return this.firstName + " " + this.lastName;
+                }
+            }
+
+            const member = {
+                firstName: "ABC",
+                lastName: "XVZ",
+            }
+            let fullName = person.fullName.bind(member);
+
+            document.getElementById("demo8").innerHTML = fullName();
+
+            const person1 = {
+                firstName: "ABC",
+                lastName: "XYZ",
+                language: "EN"
+            };
+            const man = Object.create(person);
+            man.firstName = "123";
+
+            document.getElementById("demo9").innerHTML = person.firstName + " and " + man.firstName;
+
+            const fruits = [
+                ["apples", 300],
+                ["pears", 900],
+                ["bananas", 500]
+            ];
+
+            const myObj = Object.fromEntries(fruits);
+            document.getElementById("demo10").innerHTML = myObj.pears;
+
+            const person3 = {
+                firstName: "Krish",
+                lastName: "Patel",
+                language: "en",
+                get lang() {
+                    return this.language;
+                }
+            };
+
+            document.getElementById("demo11").innerHTML = person3.lang;
+
+            const person4 = {
+                firstName: "Krish",
+                lastName: "Patel",
+                language: "NO",
+                set lang(value) {
+                    this.language = value;
+                }
+            };
+            person4.lang = "en";
+
+            document.getElementById("demo12").innerHTML = person4.language;
+
+            const person5 = {
+                firstName: "Krish",
+                lastName: "Patel",
+                fullName: function() {
+                    return this.firstName + " " + this.lastName;
+                }
+            };
+
+            document.getElementById("demo13").innerHTML = person5.fullName();
+
+            const person6 = {
+                firstName: "Abc",
+                lastName: "Xyz",
+                get fullName() {
+                    return this.firstName + " " + this.lastName;
+                }
+            };
+
+            document.getElementById("demo14").innerHTML = person6.fullName;
+            class Car {
+                constructor(brand) {
+                    this.carname = brand;
+                }
+                present() {
+                    return 'I have a ' + this.carname;
+                }
+            }
+
+            class Model extends Car {
+                constructor(brand, mod) {
+                    super(brand);
+                    this.model = mod;
+                }
+                show() {
+                    return this.present() + ', it is a ' + this.model;
+                }
+            }
+
+            const myCar = new Model("Ford", "Mustang");
+            document.getElementById("demo15").innerHTML = myCar.show();
+
+            class Car {
+                constructor(name) {
+                    this.name = name;
+                }
+                static hello() {
+                    return "Hello!!";
+                }
+            }
+
+            const myCar1 = new Car("Ford");
+            document.getElementById("demo16").innerHTML = Car.hello();
+        });
+    </script>
+</head>
+
+<body>
+    <h2>Return Statement:- </h2>
+    <p id="demo"></p>
+    <hr>
+
+    <h2>Function Expressions:- </h2>
+    <p id="demo1"></p>
+    <hr>
+
+    <h2>Event Handlers:- </h2>
+    <button id="myButton">TIME NOW</button>
+    <p id="demo2"></p>
+    <hr>
+
+    <h2>The setTimeout() Method:- </h2>
+    <h2 id="demo3"></h2>
+    <hr>
+
+    <h2>The forEach() Method:- </h2>
+    <p id="demo4"></p>
+    <hr>
+
+    <h2>Function Sequence:- </h2>
+    <p id="demo5"></p>
+    <hr>
+
+    <h2>The globalThis Object:- </h2>
+    <p id="demo6"></p>
+    <hr>
+
+    <h1>The JavaScript <i>this</i> Keyword:- </h1>
+    <button onclick="this.style.display='none'">Remove Button!</button>
+    <hr>
+
+    <h1>this keyword again:- </h1>
+    <button id="btn">Click Me!</button>
+    <p id="demo7"></p>
+    <hr>
+
+    <h2>The bind() Method:- </h2>
+    <p id="demo8"></p>
+    <hr>
+
+    <h2>The Object.create() Method:- </h2>
+    <p id="demo9"></p>
+    <hr>
+
+    <h2>The Object.fromEntries() Method</h2>
+    <p>Total pears:- </p>
+    <p id="demo10"></p>
+    <hr>
+
+    <h2>Get:- </h2>
+    <p id="demo11"></p>
+    <hr>
+
+    <h2>Set:- </h2>
+    <p id="demo12"></p>
+    <hr>
+
+    <h2>JavaScript Object Methods:- </h2>
+    <p id="demo13"></p>
+    <hr>
+
+    <h2>JavaScript Object Methods With Get:- </h2>
+    <p id="demo14"></p>
+    <hr>
+
+    <h1>Class Inheritance:- </h1>
+    <p id="demo15"></p>
+    <hr>
+
+    <h1>Class Static:- </h1>
+    <p id="demo16"></p>
+
+</body>
+
+</html>
