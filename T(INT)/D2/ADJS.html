@@ -11,26 +11,31 @@
         }
 
         document.addEventListener("DOMContentLoaded", function() {
+            // Return Statement
             let x = myFunction(4, 3);
             document.getElementById("demo").innerHTML = "The product is " + x;
 
+            // Function Expressions
             const multiply = function(a, b) {
                 return a * b
             };
             let z = multiply(2, 3);
             document.getElementById("demo1").innerHTML = z;
 
+            // Event Handlers
             function displayDate() {
                 document.getElementById("demo2").innerHTML = Date();
             }
             document.getElementById("myButton").addEventListener("click", displayDate);
 
+            // setTimeout
             setTimeout(showMessage, 3000);
 
             function showMessage() {
                 document.getElementById("demo3").innerHTML = "HEY THERE !!";
             }
 
+            // forEach Method
             const numbers = [10, 20, 30, 40, 50];
             let txt = "";
 
@@ -41,6 +46,7 @@
             numbers.forEach(formatNumber);
             document.getElementById("demo4").innerHTML = txt;
 
+            // Function Sequence
             function myDisplayer(some) {
                 document.getElementById("demo5").innerHTML = some;
             }
@@ -52,10 +58,11 @@
             let result = myCalculator(5, 5);
             myDisplayer(result);
 
+            // globalThis Object
             let result1 = globalThis === window;
-
             document.getElementById("demo6").innerHTML = result1;
 
+            // this keyword again
             const hello = () => {
                 document.getElementById("demo7").innerHTML += "<br>This is: " + this;
             }
@@ -63,6 +70,7 @@
             window.addEventListener("load", hello);
             document.getElementById("btn").addEventListener("click", hello);
 
+            // bind() Method
             const person = {
                 firstName: "Krish",
                 lastName: "Patel",
@@ -76,9 +84,9 @@
                 lastName: "XVZ",
             }
             let fullName = person.fullName.bind(member);
-
             document.getElementById("demo8").innerHTML = fullName();
 
+            // Object.create() Method
             const person1 = {
                 firstName: "ABC",
                 lastName: "XYZ",
@@ -86,9 +94,9 @@
             };
             const man = Object.create(person);
             man.firstName = "123";
-
             document.getElementById("demo9").innerHTML = person.firstName + " and " + man.firstName;
 
+            // Object.fromEntries() Method
             const fruits = [
                 ["apples", 300],
                 ["pears", 900],
@@ -98,6 +106,7 @@
             const myObj = Object.fromEntries(fruits);
             document.getElementById("demo10").innerHTML = myObj.pears;
 
+            // Get
             const person3 = {
                 firstName: "Krish",
                 lastName: "Patel",
@@ -106,9 +115,9 @@
                     return this.language;
                 }
             };
-
             document.getElementById("demo11").innerHTML = person3.lang;
 
+            // Set
             const person4 = {
                 firstName: "Krish",
                 lastName: "Patel",
@@ -118,9 +127,9 @@
                 }
             };
             person4.lang = "en";
-
             document.getElementById("demo12").innerHTML = person4.language;
 
+            // Object Methods
             const person5 = {
                 firstName: "Krish",
                 lastName: "Patel",
@@ -128,9 +137,9 @@
                     return this.firstName + " " + this.lastName;
                 }
             };
-
             document.getElementById("demo13").innerHTML = person5.fullName();
 
+            // Object Methods With Get
             const person6 = {
                 firstName: "Abc",
                 lastName: "Xyz",
@@ -138,8 +147,9 @@
                     return this.firstName + " " + this.lastName;
                 }
             };
-
             document.getElementById("demo14").innerHTML = person6.fullName;
+
+            // Class Inheritance
             class Car {
                 constructor(brand) {
                     this.carname = brand;
@@ -162,7 +172,8 @@
             const myCar = new Model("Ford", "Mustang");
             document.getElementById("demo15").innerHTML = myCar.show();
 
-            class Car {
+            // Class Static (FIXED: Renamed class to CarStatic to avoid redeclaration error)
+            class CarStatic {
                 constructor(name) {
                     this.name = name;
                 }
@@ -171,8 +182,28 @@
                 }
             }
 
-            const myCar1 = new Car("Ford");
-            document.getElementById("demo16").innerHTML = Car.hello();
+            const myCar1 = new CarStatic("Ford");
+            document.getElementById("demo16").innerHTML = CarStatic.hello();
+
+            // DOM Manipulation
+            document.getElementById("id02").innerHTML = document.getElementById("id01").innerHTML;
+
+            const para = document.createElement("p");
+            const node = document.createTextNode("This is new.");
+            para.appendChild(node);
+            const element = document.getElementById("div1");
+            element.appendChild(para);
+
+            document.getElementById("demo17").innerHTML =
+                "Browser inner window width: " + window.innerWidth + "px<br>" +
+                "Browser inner window height: " + window.innerHeight + "px";
+
+            document.getElementById("demo18").innerHTML =
+                "Screen width is " + screen.width;
+
+            function myFunction() {
+                alert("Hey There!");
+            }
         });
     </script>
 </head>
@@ -251,6 +282,33 @@
 
     <h1>Class Static:- </h1>
     <p id="demo16"></p>
+    <hr>
+
+    <h1 id="id01">My First Page:- </h1>
+    <p id="id02"></p>
+    <hr>
+
+    <h2>JavaScript HTML DOM:- </h2>
+    <p>Add a new HTML Element.</p>
+
+    <div id="div1">
+        <p id="p1">This is a paragraph.</p>
+        <p id="p2">This is another paragraph.</p>
+    </div>
+    <hr>
+
+    <h2>JavaScript Window:- </h2>
+    <p id="demo17"></p>
+    <hr>
+
+    <h2>Width:- </h2>
+    <p id="demo18"></p>
+    <hr>
+
+    <h2>Alert:- </h2>
+    <button onclick="myFunction()">Click</button>
+    <hr>
+
 
 </body>
 
